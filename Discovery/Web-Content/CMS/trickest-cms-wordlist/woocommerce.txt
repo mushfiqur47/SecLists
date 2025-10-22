@@ -1501,6 +1501,7 @@ packages/js/product-editor/changelog/fix-style_conflicts
 packages/js/product-editor/changelog/add-upgrade-blocks-to-v3
 packages/js/product-editor/changelog/fix-misspelling-in-noticeDimissed-ref
 packages/js/product-editor/changelog/dev-47359_request_variations_conditionally
+packages/js/product-editor/changelog/fix-build-warnings-WEBPACK_DEPRECATION_ARRAY_TO_SET_PUSH
 packages/js/product-editor/changelog/fix-hide-variation-notice
 packages/js/product-editor/changelog/fix-54123
 packages/js/product-editor/changelog/55498-fix-product-editor-ts-errors-2
@@ -2641,6 +2642,7 @@ packages/js/settings-editor/changelog/53165-dev-ts-5-7-2
 packages/js/settings-editor/changelog/54027-fix-settings-editor-types
 packages/js/settings-editor/changelog/dev-55910-deps-consolidation
 packages/js/settings-editor/changelog/53772-add-settings-data-group-layout
+packages/js/settings-editor/changelog/fix-build-warnings-WEBPACK_DEPRECATION_ARRAY_TO_SET_PUSH
 packages/js/settings-editor/changelog/54948-add-settings-custom-hooks
 packages/js/settings-editor/changelog/59046-dev-build-ram-usage-batch-4
 packages/js/settings-editor/changelog/56246-update-settings-router-calypso-package
@@ -10031,6 +10033,7 @@ plugins/woocommerce/client/blocks/package.json
 plugins/woocommerce/client/blocks/blocks.ini
 plugins/woocommerce/client/blocks/.gitattributes
 plugins/woocommerce/changelog/wooprd-944-implement-duplicate-and-activatedeactivate-actions
+plugins/woocommerce/changelog/fix-product-collection-brand-taxonomy
 plugins/woocommerce/changelog/wooplug-5669-analytics-taxes-shows-duplicate-tax-rows-when-multiple-tax
 plugins/woocommerce/changelog/update-autocomplete-docs
 plugins/woocommerce/changelog/qao-113-woocommerce-core-e2e-disable-block-based-product-editor
@@ -10069,6 +10072,7 @@ plugins/woocommerce/changelog/fix-add-to-cart-with-options-multiple-products-qua
 plugins/woocommerce/changelog/WOOPLUG-2074-load-wc-admin-api-on-demand
 plugins/woocommerce/changelog/add-v4-create-shipping-zone-endpoint
 plugins/woocommerce/changelog/rest-orders-v2-controller-perf
+plugins/woocommerce/changelog/add-abilities-api-integration
 plugins/woocommerce/changelog/fix-wooplug-4629-shipping-cost-locale-format
 plugins/woocommerce/changelog/dev-lint-fixes
 plugins/woocommerce/changelog/61368-WOOPLUG-5483-dynamic-tracking-url-on-provider-change
@@ -10077,6 +10081,7 @@ plugins/woocommerce/changelog/61321-wooptp-14-improve-error-handling-through-str
 plugins/woocommerce/changelog/WOOPLUG-3100-optimize-analytics-performance-indicator-endpoints
 plugins/woocommerce/changelog/update-template-and-add-to-cart-with-options-old-comments
 plugins/woocommerce/changelog/dev-re-balance-ci-jobs-shards
+plugins/woocommerce/changelog/61485-wooplug-5668-fpb-add-support-for-duotone-filter
 plugins/woocommerce/changelog/fix-50085-part-2
 plugins/woocommerce/changelog/fix-orders-v4-pagination
 plugins/woocommerce/changelog/61459-fix-61458-revert-46887
@@ -10086,6 +10091,7 @@ plugins/woocommerce/changelog/fix-grouped-product-inner-blocks-no-products
 plugins/woocommerce/changelog/61352-fix-get-session-data-fatal-error
 plugins/woocommerce/changelog/add-customers-v4-rest-api
 plugins/woocommerce/changelog/disable-cys-tests-with-gb-nightly
+plugins/woocommerce/changelog/61486-wooplug-5433-fcb-show-border-by-default
 plugins/woocommerce/changelog/fix-56609
 plugins/woocommerce/changelog/pr-61307
 plugins/woocommerce/changelog/fix-category-title-description-style
@@ -10105,6 +10111,9 @@ plugins/woocommerce/changelog/update-add-to-cart-with-options-spinner-on-load
 plugins/woocommerce/changelog/60779-wooplug-5427-fcb-make-category-heading-an-inner-block
 plugins/woocommerce/changelog/update-acp-settings-v2
 plugins/woocommerce/changelog/wooplug-2504-flaky-test-template-can-be-opened-in-the-site-editor
+plugins/woocommerce/changelog/61509-fix-paypal-authorized-with-legacy
+plugins/woocommerce/changelog/61431-update-remove-double-connect-account-text
+plugins/woocommerce/changelog/fix-build-warnings-WEBPACK_DEPRECATION_ARRAY_TO_SET_PUSH
 plugins/woocommerce/changelog/pr-61121
 plugins/woocommerce/changelog/pr-61286
 plugins/woocommerce/changelog/fix-admin-settings-save-permission
@@ -10440,7 +10449,6 @@ plugins/woocommerce/includes/rest-api/Controllers/Version1/class-wc-rest-product
 plugins/woocommerce/includes/rest-api/Controllers/Version1/class-wc-rest-customers-v1-controller.php
 plugins/woocommerce/includes/rest-api/Controllers/Version4/class-wc-rest-settings-v4-controller.php
 plugins/woocommerce/includes/rest-api/Controllers/Version4/class-wc-rest-v4-controller.php
-plugins/woocommerce/includes/rest-api/Controllers/Version4/Ping/class-wc-rest-ping-v4-controller.php
 plugins/woocommerce/includes/rest-api/Controllers/Version4/Products/class-wc-rest-products-v4-controller.php
 plugins/woocommerce/includes/rest-api/Controllers/Version4/Products/README.md
 plugins/woocommerce/includes/rest-api/Controllers/Version4/Fulfillments/class-wc-rest-fulfillments-v4-controller.php
@@ -11946,6 +11954,7 @@ plugins/woocommerce/src/Internal/ReceiptRendering/ReceiptRenderingRestController
 plugins/woocommerce/src/Internal/Settings/OptionSanitizer.php
 plugins/woocommerce/src/Internal/Settings/PointOfSaleDefaultSettings.php
 plugins/woocommerce/src/Internal/DownloadPermissionsAdjuster.php
+plugins/woocommerce/src/Internal/AbilitiesApi/AbilitiesClient.php
 plugins/woocommerce/src/Internal/Email/OrderPriceFormatter.php
 plugins/woocommerce/src/Internal/Email/EmailStyleSync.php
 plugins/woocommerce/src/Internal/Email/EmailFont.php
@@ -12266,6 +12275,7 @@ plugins/woocommerce/src/Internal/Abilities/AbilitiesRestBridge.php
 plugins/woocommerce/src/Internal/Abilities/AbilitiesRegistry.php
 plugins/woocommerce/src/Internal/Abilities/REST/RestAbility.php
 plugins/woocommerce/src/Internal/Abilities/REST/RestAbilityFactory.php
+plugins/woocommerce/src/Internal/Abilities/AbilitiesCategories.php
 plugins/woocommerce/src/Internal/CostOfGoodsSold/CostOfGoodsSoldController.php
 plugins/woocommerce/src/Internal/CostOfGoodsSold/CogsAwareTrait.php
 plugins/woocommerce/src/Internal/CostOfGoodsSold/CogsAwareRestControllerTrait.php
